@@ -3,22 +3,44 @@ package com.example.cw_m5
 class CounterPresenter {
 
     private val model = CounterModel()
-    private var contract : CounterContract? = null
+    private var contract: CounterContract? = null
 
-    fun attachContract(counter: CounterContract){
-        this.contract = counter
-        contract?.showCount(model.getResult())
+    fun attachContract(contract: CounterContract) {
+        this.contract = contract
+        updateUI()
+
     }
+    fun detachContract() {
+        contract = null
+
+    }
+
+
 
     fun onIncrement(){
         model.increment()
-        contract?.showCount(model.getResult())
+       updateUI()
     }
-    fun onDecrement(){
+
+    private fun updateUI() {
+        contract?.apply {
+            showCount(model.getResult())
+
+            when {
+                model.isCountFifteen() -> setGreenTextColor()
+                else -> resetTextColor()
+            }
+
+            if (model.isCountTen()) {
+                showCongratulations()
+            }
+        }
+    }
+
+    fun onDecrement() {
         model.decrement()
-        contract?.showCount(model.getResult())
+        updateUI()
+
     }
-    fun detachContract(){
-        contract = null
-    }
+
 }

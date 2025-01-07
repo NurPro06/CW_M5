@@ -1,6 +1,8 @@
 package com.example.cw_m5
 
+import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -19,8 +21,8 @@ class MainActivity : AppCompatActivity(), CounterContract {
 
         binding.apply {
             btnIncrement.setOnClickListener {
-                presenter.onIncrement()
-            }
+                presenter.onIncrement()}
+
             btnDecrement.setOnClickListener {
                 presenter.onDecrement()
             }
@@ -31,9 +33,21 @@ class MainActivity : AppCompatActivity(), CounterContract {
     override fun showCount(count: String) {
         binding.tvCount.text = count
     }
+
+    override fun showCongratulations() {
+        Toast.makeText(this, "Поздравляем!", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun setGreenTextColor() {
+        binding.tvCount.setTextColor(Color.GREEN)
+    }
+
+    override fun resetTextColor() {
+        binding.tvCount.setTextColor(Color.BLACK)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         presenter.detachContract()
-
     }
 }

@@ -12,4 +12,8 @@ class CounterModel {
     }
 
     fun getResult() = count.toString()
+
+    fun isCountTen() = count == 10
+
+    fun isCountFifteen() = count == 15
 }
