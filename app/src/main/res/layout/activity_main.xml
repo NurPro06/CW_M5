@@ -5,36 +5,77 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:id="@+id/tv_count"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:textSize="36sp"
-        android:paddingBottom="16dp"
+        android:id="@+id/tv_title"
+        android:text="Love Calculator"
+        android:textSize="38sp"
+        android:textColor="#6B62FF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/btn_increment"
-        android:text="+"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_count"
-        app:layout_constraintStart_toEndOf="@+id/btn_decrement"
+        android:layout_marginBottom="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <Button
-        android:id="@+id/btn_decrement"
-        android:text="-"
-        android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btn_increment"
-            app:layout_constraintTop_toBottomOf="@id/tv_count"
+    <TextView
+        android:id="@+id/first_name"
+        android:text="First name"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        android:layout_marginTop="28dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/et_first_name"
+        android:hint="You"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        android:layout_marginTop="355dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColorHint="@color/black"
+        android:background="@drawable/bg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"/>
+    <TextView
+        android:id="@+id/second_name"
+        android:text="Second name"
+        android:textSize="28sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/et_first_name"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/et_second_name"
+        android:hint="Me"
+        android:textColorHint="@color/black"
+        android:background="@drawable/bg"
+        app:layout_constraintStart_toStartOf="@id/tv_title"
+        app:layout_constraintTop_toBottomOf="@id/second_name"
+        android:layout_width="300dp"
+        android:layout_height="55dp"/>
+    <Button
+        android:id="@+id/btn_calculate"
+        android:text="Calculate"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:backgroundTint="#5D3FD3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_second_name"
+        android:layout_marginTop="50dp"
+        android:layout_width="250dp"
+        android:layout_height="60dp"/>
+    <ImageView
+        android:src="@drawable/img1"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
